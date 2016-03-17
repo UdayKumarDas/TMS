@@ -81,7 +81,7 @@ Rails.application.configure do
     config.action_mailer.perform_deliveries = true
     config.action_mailer.raise_delivery_errors = false
     config.action_mailer.default :charset => "utf-8"
-  
+
     ActionMailer::Base.delivery_method = :smtp
     #config.action_mailer.default_url_options = { :host => 'localhost:3000' }
     config.action_mailer.smtp_settings = {
@@ -89,7 +89,7 @@ Rails.application.configure do
     port: 587,
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: "dasudaykumar017@gmail.com",
-    password: "shinchan123*"
+    user_name: ENV["GMAIL_USERNAME"],
+    password: ENV["GMAIL_PASSWORD"]
 }
 end

@@ -1,0 +1,16 @@
+<%@tasks.each_with_index do |task,i|%>
+<div class="panel panel-default">
+    <div class="panel-heading">
+         <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= i.to_s%>" class="">
+                <%= task.title%>
+              </a>
+              <div class="pull-right"><%= link_to 'Edit', edit_project_task_path(@project,task),:remote=>true %><%= link_to 'Destroy', project_task_path(@project,task), method: :delete, data: { confirm: 'Are you sure?' } %></div>
+            </h4>
+
+    </div>
+    <div id="collapse<%= i.to_s%>" class="panel-collapse collapse">
+        <div class="panel-body"><%= task.description%></div>
+    </div>
+</div>
+<%end%>

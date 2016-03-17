@@ -1,0 +1,9 @@
+
+<%unless @users.blank?%>
+<%= form_tag create_invite_users_project_path(@project) do |f| %>
+	<%= select_tag "user", options_from_collection_for_select(@users, "id", "name"),:prompt=>"User Name",:required=>true %>
+	<%= submit_tag%>
+<%end%>
+<%else%>
+<h2>No users present.</h2>
+<%end%>

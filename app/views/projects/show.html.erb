@@ -1,0 +1,109 @@
+<%= link_to "Invite User",invite_users_project_path(@project),:remote=>true,:class => "btn btn-primary btn-md"%>
+<div class = "panel panel-info">
+   <div class = "panel-heading" style="height:60px;">
+      <h3 class = "panel-title">Tasks
+		<div class="pull-right">		
+			<%= link_to "Add Task",new_project_task_path(@project),:remote=>true,:class => "btn btn-primary btn-md"%>
+		</div>
+      </h3>
+     
+   </div>
+   
+   <div class = "panel-body">      
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="pull-right"> <a id="expandAll" href="#" class="btn btn-default" role="button">Expand All</a>
+
+                <a id="collapseAll" href="#" class="btn btn-default" role="button">Collapse All</a>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+            <div class="panel-group" id="accordion">
+
+            <%= render 'view_tasks'%>
+                
+            </div>
+        </div>
+ 
+
+   </div>
+</div>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>
+
+
+<script type="text/javascript">
+	$(function () {			
+                    $('a[data-toggle="collapse"]').on('click',function(){
+				
+				var objectID=$(this).attr('href');
+				
+				if($(objectID).hasClass('in'))
+				{
+                                    $(objectID).collapse('hide');
+				}
+				
+				else{
+                                    $(objectID).collapse('show');
+				}
+                    });
+                    
+                    
+                    $('#expandAll').on('click',function(){
+                        
+                        $('a[data-toggle="collapse"]').each(function(){
+                            var objectID=$(this).attr('href');
+                            if($(objectID).hasClass('in')===false)
+                            {
+                                 $(objectID).collapse('show');
+                            }
+                        });
+                    });
+                    
+                    $('#collapseAll').on('click',function(){
+                        
+                        $('a[data-toggle="collapse"]').each(function(){
+                            var objectID=$(this).attr('href');
+                            $(objectID).collapse('hide');
+                        });
+                    });
+                    
+		});
+</script>
+
+<style type="text/css">
+	/* CSS used here will be applied after bootstrap.css */
+.col-xs-12,.col-sm-12,.col-md-12,.col-lg-12{margin-bottom: 20px;}
+</style>
+
+
+
+
+<!-- Modal -->
+<div class = "modal fade" id = "myModal" tabindex = "-1" role = "dialog" 
+   aria-labelledby = "myModalLabel" aria-hidden = "true">
+   
+   <div class = "modal-dialog">
+      <div class = "modal-content">
+         
+         <div class = "modal-header">
+            <button type = "button" class = "close" data-dismiss = "modal" aria-hidden = "true">
+                  &times;
+            </button>
+            
+            <h4 class = "modal-title" id = "myModalLabel">
+               
+            </h4>
+         </div>
+         
+         <div class = "modal-body">
+           
+         </div>
+         
+         
+         
+      </div><!-- /.modal-content -->
+   </div><!-- /.modal-dialog -->
+  
+</div><!-- /.modal -->

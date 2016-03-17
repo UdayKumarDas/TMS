@@ -1,0 +1,7 @@
+<%if @status == true%>
+	$('#myModal').modal('hide');
+	$('#accordion').html('<%= j (render 'projects/view_tasks') %>');
+<%else%>
+	$('#myModal').modal('show');
+	$('.modal-body').html('<%= j (render 'tasks/form') %>');
+<%end%>

@@ -75,5 +75,21 @@ Rails.application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   # Do not dump schema after migrations.
-  config.active_record.dump_schema_after_migration = false
+    config.active_record.dump_schema_after_migration = false
+    Rails.application.routes.default_url_options[:host] = 'vast-thicket-68127.herokuapp.com'
+    config.action_mailer.default_url_options = { host: 'vast-thicket-68127.herokuapp.com' }
+    config.action_mailer.perform_deliveries = true
+    config.action_mailer.raise_delivery_errors = false
+    config.action_mailer.default :charset => "utf-8"
+  
+    ActionMailer::Base.delivery_method = :smtp
+    #config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+    config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: "dasudaykumar017@gmail.com",
+    password: "shinchan123*"
+}
 end

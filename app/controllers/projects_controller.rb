@@ -74,7 +74,7 @@ class ProjectsController < ApplicationController
      invite_user= User.find_by_id(params[:user])
      @project.users << invite_user
    p UserMailer.invitation_to_user(@project.user,invite_user,@project).deliver
-     redirect_to project_path(@project)
+     redirect_to project_path(@project), notice: "Invitation mail was successfully delivered to #{invite_user.email}" 
   end
   
   private

@@ -6,6 +6,7 @@
 
 <div class="container-fluid">
 <div class = "row"  >
+<%if @projects.present?%>
     <% @projects.each do |project| %>
    <div class = "col-sm-6 col-md-3" style="margin-top:15px;">
       <div  style="height:200px;">
@@ -31,6 +32,9 @@
          
       </div>
    </div>
+   <%end%>
+   <%else%>
+      <h4 class="text-center">No projects to display.</h4>
    <%end%>
 
 

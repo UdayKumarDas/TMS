@@ -1,14 +1,18 @@
 Rails.application.routes.draw do  
-  root 'home#index'  
-  resources :projects do    
-    resources :tasks
-    
-    member do
-      get 'invite_users',:as=>"invite_users"
-      post "create_invite_users"
-    end    
-  end
-  devise_for :users
+  #root to: "devise/sessions#new" 
+resources :projects do    
+  resources :tasks
+  member do
+    get 'invite_users',:as=>"invite_users"
+    post "create_invite_users"
+  end    
+end
+
+devise_for :users 
+
+devise_scope :user do
+  root to: "devise/sessions#new"
+end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

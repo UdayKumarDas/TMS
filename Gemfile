@@ -51,3 +51,4 @@ gem 'devise'
 gem "paperclip"
 gem 'thin'
 gem 'rails_12factor', group: :production
+gem 'adminlte2-rails'

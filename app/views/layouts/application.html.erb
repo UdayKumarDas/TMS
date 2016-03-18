@@ -6,9 +6,44 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
- <p class="notice"><%= notice %></p>
- <p class="alert"><%= alert %></p>
+<body class="skin-blue sidebar-mini fixed <%= params[:controller].parameterize %> <%= action_name %>">
+  <div class="wrapper">
+
+    <!-- Main Header -->
+<header class="main-header">
+
+  <a href="/" class="logo">
+    <!-- mini logo for sidebar mini 50x50 pixels -->
+    
+    <!-- logo for regular state and mobile devices -->
+    <span class="logo-lg"><b></b>TMS</span>
+  </a>
+
+  <!-- Header Navbar -->
+  <nav class="navbar navbar-static-top" role="navigation">
+    <!-- Sidebar toggle button-->
+    
+    <!-- Navbar Right Menu -->
+    <div class="navbar-custom-menu">
+    
+    <a href="<%= new_user_registration_path%>" class="logo">
+    <!-- mini logo for sidebar mini 50x50 pixels -->
+    
+    <!-- logo for regular state and mobile devices -->
+    <span class="logo-lg"><b></b>Sign Up</span>
+  </a>
+    </div></nav></header></div>
+<br>
+<br>
+<br>
+<br>
+ <%if notice.present?%>
+ <div class = "alert alert-success"><%= notice %></div>
+ <%end%>
+
+<%if alert.present?%>
+ <div class = "alert alert-danger"><%= alert %></div>
+ <%end%>
 <%= yield %>
 
 </body>

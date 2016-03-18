@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  layout 'admin_lte_2'
   before_action :authenticate_user!
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 

@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  layout 'admin_lte_2'
   before_action :authenticate_user!
   before_action :set_project, only: [:show, :edit, :update, :destroy,:invite_users,:create_invite_users]
 

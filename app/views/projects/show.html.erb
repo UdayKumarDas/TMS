@@ -1,4 +1,5 @@
-<%= link_to "Invite User",invite_users_project_path(@project),:remote=>true,:class => "btn btn-primary btn-md"%>
+<div><%= @project.name.upcase%><%= link_to "Invite User",invite_users_project_path(@project),:remote=>true,:class => "btn btn-primary btn-md pull-right"%></div>
+<div class="clearfix"></div><br>
 <div class = "panel panel-info">
    <div class = "panel-heading" style="height:60px;">
       <h3 class = "panel-title">Tasks
@@ -29,7 +30,7 @@
    </div>
 </div>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
+
 <%= link_to 'Back', projects_path %>
 
 

@@ -1,3 +1,5 @@
+<%unless @tasks.blank?%>
+
 <%@tasks.each_with_index do |task,i|%>
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -5,7 +7,15 @@
               <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= i.to_s%>" class="">
                 <%= task.title%>
               </a>
-              <div class="pull-right"><%= link_to 'Edit', edit_project_task_path(@project,task),:remote=>true %><%= link_to 'Destroy', project_task_path(@project,task), method: :delete, data: { confirm: 'Are you sure?' } %></div>
+              <%if @project.user == current_user%>
+              <div class="pull-right"><%= link_to  edit_project_task_path(@project,task),:remote=>true do%>
+              <i class="fa fa-pencil-square-o"></i>
+              <%end%>&nbsp;
+              <%= link_to project_task_path(@project,task), method: :delete, data: { confirm: 'Are you sure?' } do%>
+              <i class="fa fa-trash-o"></i>
+              <%end%>
+              </div>
+              <%end%>
             </h4>
 
     </div>
@@ -13,4 +23,8 @@
         <div class="panel-body"><%= task.description%></div>
     </div>
 </div>
+<%end%>
+
+<%else%>
+ <h4>No tasks present.</h4>
 <%end%>

@@ -5,7 +5,7 @@ class UserMailer < ApplicationMailer
 		@user = user
 		@invite_user = invite_user
 	    @url  = 'http://example.com/login'
-	    mail(to: @invite_user.email, subject: "#{@user.name} invited you")
+	    mail(to: @invite_user.email, subject: "Invitation to #{@project.name}")
 	end
 
 end

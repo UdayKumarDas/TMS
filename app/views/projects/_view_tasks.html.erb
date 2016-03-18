@@ -28,15 +28,7 @@
               <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= i.to_s%>" class="">
                 <%= task.title%>
               </a>
-              <%if @project.user == current_user%>
-              <div class="pull-right"><%= link_to  edit_project_task_path(@project,task),:remote=>true do%>
-              <i class="fa fa-pencil-square-o"></i>
-              <%end%>&nbsp;
-              <%= link_to project_task_path(@project,task), method: :delete, data: { confirm: 'Are you sure?' } do%>
-              <i class="fa fa-trash-o"></i>
-              <%end%>
-              </div>
-              <%end%>
+          
             </h4>
 
     </div>

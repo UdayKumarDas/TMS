@@ -1,4 +1,25 @@
-<%unless @tasks.blank?%>
+
+   <div class = "panel-heading" style="height:60px;">
+      <h3 class = "panel-title">Tasks
+    <div class="pull-right" id="add_task_btn">    
+      <%= link_to "Add Task",new_project_task_path(@project),:remote=>true,:class => "btn btn-primary btn-md"%>
+    </div>
+      </h3>
+     
+   </div>
+   
+   <div class = "panel-body">      
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="pull-right"> <a id="expandAll" href="#" class="btn btn-default" role="button">Expand All</a>
+
+                <a id="collapseAll" href="#" class="btn btn-default" role="button">Collapse All</a>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+            <div class="panel-group" id="accordion">
+
+            <%unless @tasks.blank?%>
 
 <%@tasks.each_with_index do |task,i|%>
 <div class="panel panel-default">
@@ -27,4 +48,10 @@
 
 <%else%>
  <h4>No tasks present.</h4>
-<%end%>
+<%end%> 
+                
+            </div>
+        </div>
+ 
+
+   </div>

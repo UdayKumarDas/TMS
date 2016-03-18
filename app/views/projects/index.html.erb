@@ -7,7 +7,7 @@
 <div class="container-fluid">
 <div class = "row"  >
     <% @projects.each do |project| %>
-   <div class = "col-sm-6 col-md-3">
+   <div class = "col-sm-6 col-md-3" style="margin-top:15px;">
       <div  style="height:200px;">
          <%= image_tag(project.picture.url,:size=>"200x250") %>
       </div>

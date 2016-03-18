@@ -32,7 +32,7 @@ class TasksController < ApplicationController
   def create
     @project= Project.find_by_id(params[:project_id])
     @task = @project.tasks.build(task_params)
-    @status= @task.save
+   p @status= @task.save
     @tasks= @project.tasks  
   end
 
